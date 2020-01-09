@@ -62,7 +62,7 @@ component accessors="true" {
         } else {
             // Invalid data!
             // copy errors to struct in RC and display form again
-            rc.stErrors = rc.Clipping.validate().stErrors
+            rc.stErrors = rc.Clipping.validate().stErrors;
             framework.redirect("clipping.form", "all");
         }
     }

@@ -30,7 +30,7 @@ component persistent="true" table="tbl_clipping" accessors="true" {
      * before EntitySave()!
      */
     public function clean(){
-        UDFs = application.UDFs
+        UDFs = application.UDFs;
         this.setClipping_titulo(UDFs.prepara_string(UDFs.stripHTML(variables.clipping_titulo)));
         this.setClipping_texto(UDFs.safetext(variables.clipping_texto, true));
         this.setClipping_link(UDFs.prepara_string(UDFs.stripHTML(variables.clipping_link)));

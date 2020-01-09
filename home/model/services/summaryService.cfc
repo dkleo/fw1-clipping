@@ -5,8 +5,8 @@ component {
 
     public function getSummary(string clipping_texto){
 
-        cfhttp(url='http://localhost:5000/ajax_resumo' method='post' result='st_summary'){
-            cfhttpparam (type="formfield" name = "texto" value = clipping_texto);
+        cfhttp(url='http://localhost:5000/ajax_resumo', method='post', result='st_summary'){
+            cfhttpparam (type="formfield", name = "texto", value = clipping_texto);
         }
 
         // the CFHHTP call returns the results in a struct called st_summary

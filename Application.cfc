@@ -4,15 +4,15 @@ component extends="framework.one" {
     this.name = "clipping_app";
     this.sessionManagement = true;
     this.sessionTimeout = createTimeSpan(0,2,0,0);
-    this.dataSource = "dtb_clipping";
-    this.test_datasource = "dtb_clipping_test";
+    this.dataSource = "somdoit";
+    this.test_datasource = "somdoit_test";
     this.ormEnabled = true;
     this.ormsettings = {
         // cfclocation="./model/beans",
         dbcreate="update",       // update database tables only
-        dialect="MySQL",         // assume MySql, other dialects available http://help.adobe.com/en_US/ColdFusion/9.0/Developing/WSED380324-6CBE-47cb-9E5E-26B66ACA9E81.html
+        dialect="MicrosoftSQLServer",         // assume MySql, other dialects available http://help.adobe.com/en_US/ColdFusion/9.0/Developing/WSED380324-6CBE-47cb-9E5E-26B66ACA9E81.html
         eventhandling="False",
-        eventhandler="root.home.model.beans.eventhandler",
+        //eventhandler="root.home.model.beans.eventHandler",
         logsql="true",
         flushAtRequestEnd = "false"
     };
@@ -64,9 +64,9 @@ component extends="framework.one" {
     }
 
     variables.framework.environments = {
-       dev = { reloadApplicationOnEveryRequest = true,  trace = true,},
-       prod = { password = "supersecret" }
-    }
+       dev = { reloadApplicationOnEveryRequest = true,  trace = true}
+       ,prod = { password = "supersecret" }
+    };
 
 
     // ------------------------ CALLED WHEN APPLICATION STARTS ------------------------ //
@@ -74,7 +74,7 @@ component extends="framework.one" {
 
         // copy dsn names to application scope
         application.datasource = this.datasource;
-        application.recordsPerPage = 12 //pagination setting, used in all services and tests
+        application.recordsPerPage = 12; //pagination setting, used in all services and tests
 
         // include UDF functions
         // the functions inside the CFC cann be referred by application.UDFs.functionName()

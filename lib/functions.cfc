@@ -18,7 +18,7 @@ or
          */
         function abortOnCSRFAttack( struct rc ){
             if(!structKeyExists(rc, "csrfToken") || (!CSRFVerifyToken(rc.csrfToken))){
-                abort showerror="Invalid CSRF Token...aborting execution.";
+                abort "Invalid CSRF Token...aborting execution.";
             }
         }
         this.abortOnCSRFAttack = abortOnCSRFAttack;
@@ -29,14 +29,14 @@ or
          */
         string function stripHTML(str) output="false" {
             // return REReplaceNoCase(arguments.str,"<[^>]*>","","ALL");
-            var str = reReplaceNoCase(str, "<*style.*?>(.*?)</style>","","all");
-            var str = reReplaceNoCase(str, "<*script.*?>(.*?)</script>","","all");
+            str = reReplaceNoCase(str, "<*style.*?>(.*?)</style>","","all");
+            str = reReplaceNoCase(str, "<*script.*?>(.*?)</script>","","all");
 
-            var str = reReplaceNoCase(str, "<.*?>","","all");
+            str = reReplaceNoCase(str, "<.*?>","","all");
             //get partial html in front
-            var str = reReplaceNoCase(str, "^.*?>","");
+            str = reReplaceNoCase(str, "^.*?>","");
             //get partial html at end
-            var str = reReplaceNoCase(str, "<.*$","");
+            str = reReplaceNoCase(str, "<.*$","");
             return trim(str);
         }
         this.stripHTML = stripHTML;
@@ -116,7 +116,7 @@ or
         function abrevia_nome_arquivo(texto, qtd)
         {
             if(len(texto) gt (qtd-7)){
-                var texto = mid(texto, "1", (qtd-7)) & "..." & right(texto, 7);
+                 texto = mid(texto, "1", (qtd-7)) & "..." & right(texto, 7);
             }
             return texto;
         }
@@ -129,7 +129,7 @@ or
         function abrevia_string(texto, qtd){
             if(len(texto) gt qtd)
             {
-                var texto = mid(texto, "1", qtd) & "...";
+                texto = mid(texto, "1", qtd) & "...";
             }
             return texto;
         }

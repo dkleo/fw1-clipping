@@ -1,4 +1,4 @@
-component implements="CFIDE.orm.IEventHandler" {
+component implements="cfide.orm.IEventHandler" {
 
     public void function preDelete(any entity) {
 

@@ -114,7 +114,7 @@ component extends="testbox.system.BaseSpec"{
             });
 
             it("Must be able to update an instance of a Clipping article", function(){
-                strNewTitle = "This is an updated title"
+                strNewTitle = "This is an updated title";
                 C.Clipping_titulo = strNewTitle;
                 ORMFlush();
                 C = entityLoadByPk("clipping", 1);
